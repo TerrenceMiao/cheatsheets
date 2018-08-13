@@ -6,10 +6,6 @@ intro: |
   A quick reference of Kubernetes Commands with Input / Output examples, the ecosystem surround it and beyond.
 ---
 
-**Data has gravity. Data is the new order.**
-
-## kubectl
-
 ### General Information
 
 ```
@@ -59,6 +55,9 @@ Opening kubernetes dashboard in default browser...
 - registry-creds: disabled
 - storage-provisioner: enabled
 ```
+
+
+## kubectl
 
 ### Configuration
 
