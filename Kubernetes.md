@@ -125,7 +125,7 @@ NOTE: can **ONLY** bind localhost IP (127.0.0.1)
 ### Port Forwarding
 
 ```
-𝜆 kubectl port-forward svc/elasticsearch-data 9200:9200
+𝜆 kubectl port-forward svc/elasticsearch 9200:9200
 Forwarding from 127.0.0.1:9200 -> 9200
 Forwarding from [::1]:9200 -> 9200
 ```
@@ -135,27 +135,27 @@ NOTE: can **ONLY** bind localhost IP (127.0.0.1)
 ### Stateful Sets
 
 ```
-𝜆 kubectl create -f elasticsearch-data-stateful-sets.yaml
-statefulset.apps/elasticsearch-data created
+𝜆 kubectl create -f elasticsearch-stateful-sets.yaml
+statefulset.apps/elasticsearch created
 
-𝜆 kubectl get statefulset elasticsearch-data
+𝜆 kubectl get statefulset elasticsearch
 NAME                 DESIRED   CURRENT   AGE
-elasticsearch-data   1         1         52s
+elasticsearch        1         1         52s
 ```
 
 ### Services
 
 ```
-𝜆 kubectl create -f elasticsearch-data-service.yaml
-service/elasticsearch-data created
+𝜆 kubectl create -f elasticsearch-service.yaml
+service/elasticsearch created
 
-𝜆 kubectl get service elasticsearch-data
+𝜆 kubectl get service elasticsearch
 NAME                 TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)                         AGE
-elasticsearch-data   NodePort   10.104.152.51   10.0.0.100    9200:30920/TCP,9300:30930/TCP   18m
+elasticsearch        NodePort   10.104.152.51   10.0.0.100    9200:30920/TCP,9300:30930/TCP   18m
 
 𝜆 kubectl get service --all-namespaces
 NAMESPACE     NAME                   TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                         AGE
-default       elasticsearch-data     LoadBalancer   10.104.91.150   10.0.0.100    9200:31383/TCP,9300:30063/TCP   7m
+default       elasticsearch          LoadBalancer   10.104.91.150   10.0.0.100    9200:31383/TCP,9300:30063/TCP   7m
 default       kubernetes             ClusterIP      10.96.0.1       <none>        443/TCP                         3d
 kube-system   kube-dns               ClusterIP      10.96.0.10      <none>        53/UDP,53/TCP                   3d
 kube-system   kubernetes-dashboard   NodePort       10.108.138.47   <none>        80:30000/TCP                    3d
@@ -207,8 +207,9 @@ OpenJDK 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in ve
 |-------------|----------------------|--------------------------------|
 |  NAMESPACE  |         NAME         |              URL               |
 |-------------|----------------------|--------------------------------|
-| default     | elasticsearch-data   | http://192.168.99.100:30920    |
+| default     | elasticsearch        | http://192.168.99.100:30920    |
 |             |                      | http://192.168.99.100:30930    |
+| default     | kibana               | http://192.168.99.100:30560    |
 | default     | kubernetes           | No node port                   |
 | kube-system | kube-dns             | No node port                   |
 | kube-system | kubernetes-dashboard | http://192.168.99.100:30000    |
