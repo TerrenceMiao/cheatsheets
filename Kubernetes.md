@@ -8,7 +8,7 @@ intro: |
 
 ### General Information
 
-```sh
+```console
 𝜆 minikube start
 Starting local Kubernetes v1.10.0 cluster...
 Starting VM...
@@ -34,7 +34,7 @@ minikube   Ready     master    13h       v1.10.0
 
 ### Dashboard
 
-```sh
+```console
 𝜆 minikube dashboard
 Opening kubernetes dashboard in default browser...
 
@@ -60,7 +60,7 @@ Opening kubernetes dashboard in default browser...
 
 ### Configuration
 
-```sh
+```console
 𝜆 kubectl config view
 apiVersion: v1
 clusters:
@@ -100,7 +100,7 @@ namespace:  7 bytes
 
 ### Proxy
 
-```sh
+```console
 𝜆 kubectl proxy --port=8080 &
 Starting to serve on 127.0.0.1:8080
 
@@ -123,7 +123,7 @@ NOTE: can **ONLY** bind localhost IP (127.0.0.1)
 
 ### Port Forwarding
 
-```sh
+```console
 𝜆 kubectl port-forward svc/elasticsearch 9200:9200
 Forwarding from 127.0.0.1:9200 -> 9200
 Forwarding from [::1]:9200 -> 9200
@@ -131,9 +131,23 @@ Forwarding from [::1]:9200 -> 9200
 
 NOTE: can **ONLY** bind localhost IP (127.0.0.1)
 
+### Expose Service
+
+```console
+𝜆 kubectl expose deployment elasticsearch --type=LoadBalancer
+service/elasticsearch exposed
+```
+
+### Deployment
+
+```console
+𝜆 kubectl create -f kibana-deployment.yaml
+deployment.apps/kibana created
+```
+
 ### Stateful Sets
 
-```sh
+```console
 𝜆 kubectl create -f elasticsearch-stateful-sets.yaml
 statefulset.apps/elasticsearch created
 
@@ -144,7 +158,7 @@ elasticsearch        1         1         52s
 
 ### Services
 
-```sh
+```console
 𝜆 kubectl create -f elasticsearch-service.yaml
 service/elasticsearch created
 
@@ -164,7 +178,7 @@ kube-system   kubernetes-dashboard   NodePort       10.108.138.47   <none>      
 
 Take ElasticSearch into Kubernetes action:
 
-```sh
+```console
 𝜆 kubectl run elasticsearch --image=docker.elastic.co/elasticsearch/elasticsearch:6.3.2 --env="discovery.type=single-node" --port=9200
 deployment.apps/elasticsearch created
 
@@ -189,7 +203,7 @@ OpenJDK 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in ve
 
 ### Host
 
-```sh
+```console
 𝜆 minikube ssh
                          _             _
             _         _ ( )           ( )
@@ -201,7 +215,7 @@ OpenJDK 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in ve
 
 ### Services
 
-```sh
+```console
 𝜆 minikube service list
 |-------------|----------------------|--------------------------------|
 |  NAMESPACE  |         NAME         |              URL               |
