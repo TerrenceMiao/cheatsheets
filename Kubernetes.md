@@ -254,6 +254,9 @@ Default browser open URL e.g. _http://192.168.99.100:30920/_ with response:
 }
 ```
 
+![ElasticSearch in Kubernetes](https://raw.githubusercontent.com/TerrenceMiao/ReactJS/master/auto-suggest/auto-suggest%20in%20Kubernetes.png "ElasticSearch in Kubernetes")
+
+
 ## References
 
 * Kubernetes Commands, <https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands>
